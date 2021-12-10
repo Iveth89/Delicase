@@ -55,13 +55,19 @@ function syncpedido(pedido) {
     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     body: JSON.stringify(pedido) // body data type must match "Content-Type" header
   }).then(response => response.json()).then(function (data) {
+    var msj;
     if(data.result){
-      alert(data.message);
+      msj = data.message;
     }else{
-      alert("Error al procesar su solicitud");
+      msj = "Error al procesar su solicitud";
     }
+    window.addEventListener('load', function() {
+      alert(msj);
+    });
   }).catch(function (error) {
-    alert("No tienes conexión a internet, por favor no borres tu pedido hasta que te vuelvas conectar para enviar tu pedido");
+    window.addEventListener('load', function() {
+      alert("No tienes conexión a internet, por favor no borres tu pedido hasta que te vuelvas conectar para enviar tu pedido");
+    });
     addtoIndexdb(data);
   });
 }
