@@ -1,5 +1,6 @@
 var urlApi = 'https://delicase.vercel.app/';
 var db = new Dexie("Delicase");
+var synDataMessages = [];
 
 // define la informacion a almacenar en la base de datos 
 db.version(1).stores({
@@ -55,20 +56,10 @@ function syncpedido(pedido) {
     referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
     body: JSON.stringify(pedido) // body data type must match "Content-Type" header
   }).then(response => response.json()).then(function (data) {
-    var msj;
     if(data.result){
-      msj = data.message;
-    }else{
-      msj = "Error al procesar su solicitud";
+      synDataMessages.push(data.message);
     }
-    window.addEventListener('load', function() {
-      alert(msj);
-    });
-  }).catch(function (error) {
-    window.addEventListener('load', function() {
-      alert("No tienes conexión a internet, por favor no borres tu pedido hasta que te vuelvas conectar para enviar tu pedido");
-    });
-    addtoIndexdb(data);
+    
   });
 }
 
