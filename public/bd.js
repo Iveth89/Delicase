@@ -56,12 +56,12 @@ function syncpedido(pedido) {
     body: JSON.stringify(pedido) // body data type must match "Content-Type" header
   }).then(response => response.json()).then(function (data) {
     if(data.result){
-      bootbox.alert(data.message);
+      alert(data.message);
     }else{
-      bootbox.alert("Error al procesar su solicitud");
+      alert("Error al procesar su solicitud");
     }
   }).catch(function (error) {
-    bootbox.alert("No tienes conexión a internet, por favor no borres tu pedido hasta que te vuelvas conectar para enviar tu pedido");
+    alert("No tienes conexión a internet, por favor no borres tu pedido hasta que te vuelvas conectar para enviar tu pedido");
     addtoIndexdb(data);
   });
 }
