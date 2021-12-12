@@ -8,8 +8,6 @@ self.addEventListener("install", (result) => {
   // abrir el cache con base al nombre y si no existe lo crea
   let files_appShell = ["/",
     "/index.html",
-    "/detalle.html",
-    "/carrito.html",                    
     "/assets/favicon.ico","/css/styles.css",
     "/js/scripts.js",
     "/js/detalle.js",
