@@ -1,7 +1,7 @@
 //var searchParams = new URLSearchParams(window.location.search);
   var  pr_id = sessionStorage.getItem('pr_id');
 var urlApi = 'https://delicase.vercel.app';
-
+ 
 function cargaProducto(pr_id = 0) {
 var cont=0;
     fetch(urlApi + '/general/getProducto?pr_id='+pr_id).then(response => response.json()).then(function (data) {
@@ -18,8 +18,8 @@ var cont=0;
                 if(pr_id==null){
                  window.location.href=window.location.origin;
                 }
-                if(cont<3)
-                 window.location.reload();
+                //if(cont<3)
+               //  window.location.reload();
       
      		        	bootbox.alert("Algo salio mal al cargar el detalle verifique su conexion e intentelo nuevamente");
     });
