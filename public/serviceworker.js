@@ -61,19 +61,24 @@ fetch(event.request);
 
 
 
-event.respondWith(caches.match(event.request).then(
-  cacheResponse =>{
-             return cacheResponse || fetch(event.request).then(
-                 networkResponse => {
+self.addEventListener('fetch', event => {
+    event.respondWith(caches.match(event.request).then(
+        cacheResponse => {
+            //Si estuvo en cache, lo va a regresar
+            if (cacheResponse) return cacheResponse;
+            //Sino estuvo en cache, lo va a buscar a la red
+            return fetch(event.request).then(
+                networkResponse => {
                     caches.open(dynamicCache).then(cache => {
-                        cache.put(event.request, networkResponse.clone())
-                        return networkResponse;
+                        cache.put(event.request, networkResponse.clone()).then();
+                                return networkResponse;
+
                     })
-                 }
-             )
-      }
-))
-}
+                }
+            )
+        }
+    ))
+
 })
 
 self.addEventListener("message", (obj) => {
