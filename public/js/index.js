@@ -62,7 +62,7 @@ function cargaProductos(tp_id = 0, key_words = '') {
 }
 
 cargaProductos(0, '');
-detalleproducto(id){
+function detalleproducto(id){
  sessionStorage.setItem('pr_id', id);
 window.location.href=window.location.origin+"/detalle.html";
 }
