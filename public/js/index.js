@@ -51,7 +51,7 @@ function cargaProductos(tp_id = 0, key_words = '') {
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="detalle.html?pr_id=${el.pr_id}">Detalle</a></div>
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/detalle.html?pr_id=${el.pr_id}">Detalle</a></div>
                     </div>
                 </div>
             </div>
