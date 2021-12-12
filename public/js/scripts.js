@@ -73,8 +73,3 @@ navigator.serviceWorker.ready.then((swRegistration)=>{
 	console.log('Se inicio la sincronización');
 })
 
-window.addEventListener('load', function() {
-	synDataMessages.forEach(function(el){
-		alert(el);
-	});
-});
