@@ -13,6 +13,8 @@ function cargaProducto(pr_id = 0) {
 
             agregaProductoCarrito(data);
         });
+    }).catch((e)=>{
+     		        	bootbox.alert("Algo salio mal al cargar el detalle verifique su conexion e intentelo nuevamente");
     });
 }
 
