@@ -17,5 +17,6 @@ function cargaProducto(pr_id = 0) {
      		        	bootbox.alert("Algo salio mal al cargar el detalle verifique su conexion e intentelo nuevamente");
     });
 }
-
+ window.addEventListener("load", function() {
 cargaProducto(pr_id);
+ });
