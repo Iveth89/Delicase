@@ -7,7 +7,6 @@ let inmutableCache = "inmutable-v1";
 self.addEventListener("install", (result) => {
   // abrir el cache con base al nombre y si no existe lo crea
   let files_appShell = ["/",
-                        '/_redirect',
     "/index.html",
     "/carrito.html",
     "/detalle.html",
