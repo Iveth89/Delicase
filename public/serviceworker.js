@@ -53,17 +53,16 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-self.addEventListener('fetch', (event) => {
-    var requestClone = event.request.clone();
 
-if(event.request.url.includes("/general/guardaPedido")){
-fetch(event.request);
 
-}else{
 
 
 
 self.addEventListener('fetch', event => {
+  if(event.request.url.includes("/general/guardaPedido")){
+fetch(event.request);
+
+}else{
     event.respondWith(caches.match(event.request).then(
         cacheResponse => {
             //Si estuvo en cache, lo va a regresar
@@ -80,7 +79,7 @@ self.addEventListener('fetch', event => {
             )
         }
     ))
-
+}
 })
 
 self.addEventListener("message", (obj) => {
