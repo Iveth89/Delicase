@@ -1,5 +1,24 @@
 var session;
-
+// Se verifica si el navegador soporta el serviceworker
+if ('serviceWorker' in navigator) {
+	// Al tarminar de cargar la pagina se registra el service worker
+	window.addEventListener('load', function() {
+		// Se registra el service worker
+		navigator.serviceWorker.register('/serviceworker.js')
+		.then(
+			// Catch en caso de registro exitoso
+			function(registration) {
+				// Registration was successful
+				console.log('ServiceWorker registration successful with scope: ', registration.scope);
+			}, 
+			// Catch en caso de registro fallido 
+			function(err) {
+				// registration failed :(
+				console.log('ServiceWorker registration failed: ', err);
+			}
+		);
+	});
+}
 // Funcion para mostrar el numero de items en el carrito
 function conteoCarrito() {
 	session = sessionStorage.getItem('carrito');
@@ -44,26 +63,7 @@ function eliminaProductoCarrito(index) {
 }
 
 
-// Se verifica si el navegador soporta el serviceworker
-if ('serviceWorker' in navigator) {
-	// Al tarminar de cargar la pagina se registra el service worker
-	window.addEventListener('load', function() {
-		// Se registra el service worker
-		navigator.serviceWorker.register('/serviceworker.js')
-		.then(
-			// Catch en caso de registro exitoso
-			function(registration) {
-				// Registration was successful
-				console.log('ServiceWorker registration successful with scope: ', registration.scope);
-			}, 
-			// Catch en caso de registro fallido 
-			function(err) {
-				// registration failed :(
-				console.log('ServiceWorker registration failed: ', err);
-			}
-		);
-	});
-}
+
 
 // Dispara el evento 'sync' del service worker
 navigator.serviceWorker.ready.then((swRegistration)=>{
