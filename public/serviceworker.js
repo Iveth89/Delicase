@@ -17,7 +17,32 @@ self.addEventListener("install", (result) => {
     "/js/detalle.js",
     "/js/carrito.js",
     "/js/index.js",
-    "/bd.js"
+    "/bd.js",
+    'https://delicase.vercel.app/general/getAllTiposProducto',
+    'https://delicase.vercel.app/general/getAllProductos?tp_id=0&key_words=',
+    '/assets/imagenes/1.jpg',
+    '/assets/imagenes/2.jpg',
+    'assets/imagenes/3.jpg',
+    'assets/imagenes/4.jpg',
+    'assets/imagenes/5.jpg',
+    'assets/imagenes/6.jpg',
+    'assets/imagenes/7.jpg',
+    'assets/imagenes/8.jpg',
+    'assets/imagenes/9.jpg',
+    'assets/imagenes/10.jpg',
+    'assets/imagenes/11.jpg',
+    'assets/imagenes/12.jpg',
+    'assets/imagenes/13.jpg',
+    'assets/imagenes/14.jpg',
+    'assets/imagenes/15.jpg',
+    'assets/imagenes/16.jpg',
+    'assets/imagenes/17.jpg',
+    'assets/imagenes/18.jpg',
+    'assets/imagenes/19.jpg',
+    'assets/imagenes/20.jpg',
+    'assets/imagenes/21.jpg',
+    'assets/imagenes/22.jpg',
+    'assets/imagenes/23.jpg'
 ];
   const static_cache = caches.open(staticCache).then((cacheStatic) => {
     cacheStatic.addAll(files_appShell);
