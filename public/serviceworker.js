@@ -34,7 +34,7 @@ self.addEventListener("install", (result) => {
    const inmutable_cache=caches.open(inmutableCache).then((cacheInmutable) => {
     cacheInmutable.addAll(inmutable_cache_files);
   });
-  result.waitUntil(Promise.allSettled([static_cache, inmutable_cache]));
+  result.waitUntil(Promise.all([static_cache, inmutable_cache]));
 });
 self.addEventListener("activate", (event) => {
   event.waitUntil(
@@ -73,12 +73,7 @@ self.addEventListener('fetch', function(event) {
   );
 });
 
-// self.addEventListener("message", (obj) => {
-//   //revisar si el msj tiene el mensaje 'skipWaiting'
-//   if (obj.data.action === "skipWaiting") {
-//     //ejecutar el skipWaiting
-//   }
-// });
+
 
 self.addEventListener('sync',function(event) {
     if(event.tag=='sincronizacion'){
