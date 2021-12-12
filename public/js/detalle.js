@@ -1,5 +1,5 @@
-var searchParams = new URLSearchParams(window.location.search),
-    pr_id = sessionStorage.getItem('pr_id');
+//var searchParams = new URLSearchParams(window.location.search);
+  var  pr_id = sessionStorage.getItem('pr_id');
 var urlApi = 'https://delicase.vercel.app';
 
 function cargaProducto(pr_id = 0) {
@@ -14,7 +14,7 @@ function cargaProducto(pr_id = 0) {
             agregaProductoCarrito(data);
         });
     }).catch((e)=>{
-        window.location.reload();
+
      		        	bootbox.alert("Algo salio mal al cargar el detalle verifique su conexion e intentelo nuevamente");
     });
 }
