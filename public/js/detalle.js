@@ -1,5 +1,5 @@
 var searchParams = new URLSearchParams(window.location.search),
-    pr_id = searchParams.get('pr_id');
+    pr_id = sessionStorage.getItem('pr_id');
 var urlApi = 'https://delicase.vercel.app';
 
 function cargaProducto(pr_id = 0) {
