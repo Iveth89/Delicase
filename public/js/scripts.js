@@ -66,12 +66,16 @@ function eliminaProductoCarrito(index) {
 
 
 // Dispara el evento 'sync' del service worker
-navigator.serviceWorker.ready.then((swRegistration)=>{
+
+
+$(document).ready(function (){
+  window.addEventListener('online',  function(){
+  navigator.serviceWorker.ready.then((swRegistration)=>{
 	return swRegistration.sync.register('sincronizacion');
 }).then(function (){
 	console.log('Se inicio la sincronización');
 })
-
-$(document).ready(function (){
+  });
+	
 conteoCarrito();
 })
